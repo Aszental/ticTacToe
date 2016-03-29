@@ -8,10 +8,22 @@
 }
 
 
-.x-player {
+.x {
+  float: left;
   background-color: green;
+  width: 30%;
+  height: 80px;
+  margin: 1px;
+  border: 1px solid black;
+
 }
 
-.y-player {
+.y {
+  float: left;
   background-color: blue;
+  width: 30%;
+  height: 80px;
+  margin: 1px;
+  border: 1px solid black;
+
 }
