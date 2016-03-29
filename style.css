@@ -1,9 +1,9 @@
 .square {
   display: inline-block;
-  width: 30%;
+  width: 28%;
   height: 50px;
-  background-color: black;
-  margin: 5px;
+  background-color: red;
+  margin: 1px;
 }
 
 
