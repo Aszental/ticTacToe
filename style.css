@@ -1,0 +1,16 @@
+.square {
+  display: inline-block;
+  width: 30%;
+  height: 50px;
+  background-color: black;
+  margin: 5px;
+}
+
+
+.x-player {
+  background-color: green;
+}
+
+.y-player {
+  background-color: blue;
+}
