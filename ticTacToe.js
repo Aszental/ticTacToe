@@ -1,12 +1,14 @@
 var board = document.querySelector('.board')
 var playerSpan = document.getElementById('current-player')
-var currentPlayer = 'X'
+var currentPlayer = 'x'
 
-var winConditions = [[11, 12, 13], [21, 22, 23], [31, 22, 33], [11, 21,31], [12, 22, 32],[13, 23, 33], [11, 22, 33], [13, 22, 31]]
+var winConditions = [[11, 12, 13], [21, 22, 23], [31, 32, 33], [11, 21,31], [12, 22, 32],[13, 23, 33], [11, 22, 33], [13, 22, 31]]
 var xMoves = []
 var yMoves = []
 var isWinner = false;
 var isTie = false;
+var xWins = 0;
+var yWins = 0;
 
 
 // var playerOne = function (event) {
@@ -27,20 +29,20 @@ board.addEventListener('click', turn);
 function turn(event) {
   if (event.target.className === 'square') { // check if class has already been applied
 
-    if (currentPlayer === 'X') {
+    if (currentPlayer === 'x') {
       event.target.className = 'x'; // change square to x class
       xMoves.push(parseInt(event.target.id)); //push to moves array
       winChecker(xMoves) // see if x is winner
-      currentPlayer = 'Y'; // set player to y
+      currentPlayer = 'y'; // set player to y
       document.getElementById('current-player').innerHTML = "Y"
 
   }
 
-    else if (currentPlayer === 'Y') {
+    else if (currentPlayer === 'y') {
       event.target.className = 'y';
       yMoves.push(parseInt(event.target.id));
       winChecker(yMoves)
-      currentPlayer = 'X';
+      currentPlayer = 'x';
       document.getElementById('current-player').innerHTML = "X"
 
   }
@@ -78,6 +80,7 @@ for (var j = 0; j < winConditions.length; j++) { //loop through win array
 }
   if(isWinner) {
     window.alert(currentPlayer + " Is the winner!")
+    winCounter();
     boardReset();
   }
   if(isTie) {
@@ -90,14 +93,27 @@ function boardReset() {
   xMoves = []
   yMoves = []
   isWinner = false;
+  isTie = false;
   var elsX = document.getElementsByClassName('x');
   var elsY = document.getElementsByClassName('y');
 
   while (elsX.length) {
     elsX[0].className = 'square';
-}
-while (elsY.length) {
-  elsY[0].className = 'square';
+  }
+  while (elsY.length) {
+    elsY[0].className = 'square';
 
 }
+}
+
+function winCounter() {
+  if (currentPlayer === 'x'){
+    xWins++
+    document.getElementById('xwins').innerHTML = xWins
+  }
+  else {
+    yWins++
+    document.getElementById('ywins').innerHTML = xWins
+
+  }
 }

@@ -3,7 +3,23 @@ body {
 
 }
 
+.board {
+  margin: 10px;
+  width: 75%;
+  float: left;
+  vertical-align: top;
 
+}
+
+.game-info {
+  width: 100px;
+  width: 19%;
+  float: left;
+  vertical-align: top;
+}
+
+#currentplayer {
+}
 .square {
   float: left;
   width: 30%;
