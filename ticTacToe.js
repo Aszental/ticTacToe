@@ -57,6 +57,8 @@ function turn(event) {
       winChecker(xMoves) // see if x is winner
       currentPlayer = 'Palestine'; // set player to y
       document.getElementById('current-player').innerHTML = "Palestine"
+      document.getElementById('currentplayer').style.background = palestineHoverBackground
+
 
   }
 
@@ -66,7 +68,7 @@ function turn(event) {
       winChecker(yMoves)
       currentPlayer = 'Israel';
       document.getElementById('current-player').innerHTML = "Israel"
-
+      document.getElementById('currentplayer').style.background = israelHoverBackground
   }
 
  }

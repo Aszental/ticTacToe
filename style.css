@@ -1,15 +1,19 @@
+body {
+  background-image: url(http://mikeowenmaterials.com/wp-content/uploads/2015/03/sand-background.jpg);
+}
+
+
 $hover-color:    #3d4250;
 $player-1-color: #dc685a
 $player-2-color: #ecaf4f;
 
 
-body {
-  color: #b6b5ca;
-  background-color: green;
-}
+
 
 .board {
   padding-left: 2%;
+
+
 }
 
 .game-info {
@@ -73,8 +77,8 @@ height: auto;
   border-radius: 5px;
   background-color: #78bec5;
 
-
 }
+
 #score-count-y {
   width: 31.333%;
   margin-right: 1.5%;
@@ -88,11 +92,12 @@ height: auto;
  background-color: #78bec5;
 
 
-
-
 }
 
 
+#currentplayer {
+  background-size: contain;
+}
 
 
 
