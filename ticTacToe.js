@@ -1,7 +1,9 @@
 var board = document.querySelector('.board')
+var square = document.querySelector('.square')
 var playerSpan = document.getElementById('current-player')
 var currentPlayer = 'Israel'
-
+var israelHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/660px-Flag_of_Israel.svg.png) repeat 0 0"
+var palestineHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(http://www.crwflags.com/fotw/images/p/ps_pent.gif) repeat 0 0"
 var winConditions = [[11, 12, 13], [21, 22, 23], [31, 32, 33], [11, 21,31], [12, 22, 32],[13, 23, 33], [11, 22, 33], [13, 22, 31]]
 var xMoves = []
 var yMoves = []
@@ -9,6 +11,8 @@ var isWinner = false;
 var isTie = false;
 var xWins = 0;
 var yWins = 0;
+
+
 
 
 // var playerOne = function (event) {
@@ -20,6 +24,25 @@ var yWins = 0;
 // }
 
 board.addEventListener('click', turn);
+
+board.addEventListener("mouseover", function (event) {
+  if (event.target.className === "square") {
+    if (currentPlayer === "Israel")
+    event.target.style.background = israelHoverBackground;
+
+    else if (currentPlayer === "Palestine") {
+      event.target.style.background = palestineHoverBackground;
+
+  }
+    }
+}
+)
+
+board.addEventListener("mouseout", function (event) {
+    event.target.style.background = ""
+  }
+)
+
 
 // function image(thisImg) {
 //     document.getElementById('imageDiv').appendChild(img);
