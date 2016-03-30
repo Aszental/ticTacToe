@@ -1,6 +1,6 @@
 var board = document.querySelector('.board')
 var playerSpan = document.getElementById('current-player')
-var currentPlayer = 'x'
+var currentPlayer = 'Israel'
 
 var winConditions = [[11, 12, 13], [21, 22, 23], [31, 32, 33], [11, 21,31], [12, 22, 32],[13, 23, 33], [11, 22, 33], [13, 22, 31]]
 var xMoves = []
@@ -28,22 +28,21 @@ board.addEventListener('click', turn);
 
 function turn(event) {
   if (event.target.className === 'square') { // check if class has already been applied
-
-    if (currentPlayer === 'x') {
+    if (currentPlayer === 'Israel') {
       event.target.className = 'x'; // change square to x class
       xMoves.push(parseInt(event.target.id)); //push to moves array
       winChecker(xMoves) // see if x is winner
-      currentPlayer = 'y'; // set player to y
-      document.getElementById('current-player').innerHTML = "Y"
+      currentPlayer = 'Palestine'; // set player to y
+      document.getElementById('current-player').innerHTML = "Palestine"
 
   }
 
-    else if (currentPlayer === 'y') {
+    else if (currentPlayer === 'Palestine') {
       event.target.className = 'y';
       yMoves.push(parseInt(event.target.id));
       winChecker(yMoves)
-      currentPlayer = 'x';
-      document.getElementById('current-player').innerHTML = "X"
+      currentPlayer = 'Israel';
+      document.getElementById('current-player').innerHTML = "Israel"
 
   }
 
@@ -94,6 +93,8 @@ function boardReset() {
   yMoves = []
   isWinner = false;
   isTie = false;
+
+  // iterates through the x and why clases and changes it back to squre
   var elsX = document.getElementsByClassName('x');
   var elsY = document.getElementsByClassName('y');
 
@@ -102,16 +103,16 @@ function boardReset() {
   }
   while (elsY.length) {
     elsY[0].className = 'square';
+}
+}
 
-}
-}
 
 function winCounter() {
-  if (currentPlayer === 'x'){
+  if (currentPlayer === 'Israel'){
     xWins++
     document.getElementById('xwins').innerHTML = xWins
   }
-  else {
+  else if (currentPlayer === 'Palestine'){
     yWins++
     document.getElementById('ywins').innerHTML = xWins
 
