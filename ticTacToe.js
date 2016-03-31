@@ -190,7 +190,7 @@ function computerMove() {
 }
 
 
-$(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+$(".youtube")..delay( 800 ).colorbox({iframe:true, innerWidth:640, innerHeight:390});
 function trumpWins() {
   $('.youtube').click();
 }
