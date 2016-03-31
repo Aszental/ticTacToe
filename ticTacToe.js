@@ -106,7 +106,13 @@ for (var j = 0; j < winConditions.length; j++) { //loop through win array
   if(isWinner) {
     document.getElementById('winner').innerHTML = (currentPlayer + "  was the winner!" )
     winCounter();
+    if (currentPlayer === "Trump") {
+      trumpWins()
+      boardReset();
+    }
+    else {
     boardReset();
+    }
   }
 
   if(isTie) {
@@ -181,4 +187,11 @@ function computerMove() {
   currentPlayer = 'Hilary'; // set player to hilary, the human player
   document.getElementById('current-player').innerHTML = "Hilary" // set current player html to hilary
 }
+}
+
+
+$(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+
+function trumpWins() {
+  $('.youtube').click();
 }
