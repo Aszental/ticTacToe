@@ -33,12 +33,11 @@ board.addEventListener("mouseover", function (event) {
   if (event.target.className === "square") {
     if (currentPlayer === "Hilary")
     event.target.style.background = hilaryHoverBackground;
-
     else if (currentPlayer === "Trump") {
       event.target.style.background = trumpHoverBackground;
+   }
   }
  }
-}
 )
 
 board.addEventListener("mouseout", function (event) {
@@ -60,9 +59,7 @@ function turn(event) {
       winChecker(xMoves) // see if x is winner
       currentPlayer = 'Trump'; // set player to y
       document.getElementById('current-player').innerHTML = "Trump"
-      document.getElementById('currentplayer').style.background = trumpHoverBackground
       computerMove();
-
   }
 
     else if (currentPlayer === 'Trump') {
@@ -107,12 +104,13 @@ for (var j = 0; j < winConditions.length; j++) { //loop through win array
 }
 
   if(isWinner) {
-    window.alert(currentPlayer + " Is the winner!")
+    document.getElementById('winner').innerHTML = (currentPlayer + "  was the winner!" )
     winCounter();
     boardReset();
   }
+
   if(isTie) {
-    window.alert("It is a Tie!")
+    document.getElementById('winner').innerHTML = ( "It was a Tie!" )
     boardReset();
   }
    }
@@ -123,17 +121,20 @@ function boardReset() {
   yMoves = []
   isWinner = false;
   isTie = false;
-
   // iterates through the x and why clases and changes it back to squre
   var elsX = document.getElementsByClassName('x');
   var elsY = document.getElementsByClassName('y');
-
   while (elsX.length) {
     elsX[0].className = 'square';
   }
   while (elsY.length) {
     elsY[0].className = 'square';
+
+
 }
+
+
+
 }
 
 
@@ -145,7 +146,6 @@ function winCounter() {
   else if (currentPlayer === 'Trump'){
     yWins++
     document.getElementById('ywins').innerHTML = yWins
-
   }
 }
 
@@ -153,11 +153,9 @@ function winCounter() {
 //function to get the remaining moves available to the computer
 function computerMoves(a1, a2) {
     var a = [], diff = [];
-
     for (var i = 0; i < a1.length; i++) {
         a[a1[i]] = true;
     }
-
     for (var i = 0; i < a2.length; i++) {
         if (a[a2[i]]) {
             delete a[a2[i]];
@@ -165,26 +163,22 @@ function computerMoves(a1, a2) {
             a[a2[i]] = true;
         }
     }
-
     for (var k in a) {
         diff.push(k);
     }
-
     return diff;
 };
 
-
-
+//function that will make the computer move
 
 function computerMove() {
-  if (currentPlayer === 'Trump') {
-  var availableMoves = computerMoves(allMoves(), allCells)
+  {
+  var availableMoves = computerMoves(allMoves(), allCells) //get available moves, cells not been played
   var nextMove = availableMoves[Math.floor(Math.random() * availableMoves.length)]; // get the next move randomly
-  console.log(nextMove)
-  document.getElementById(nextMove).className = 'y'
-  yMoves.push(parseInt(nextMove));
-  winChecker(yMoves)
-  currentPlayer = 'Hilary'; // set player to y
-  document.getElementById('current-player').innerHTML = "Hilary"
+  document.getElementById(nextMove).className = 'y' //asign trump class to the next move
+  yMoves.push(parseInt(nextMove)); //push the computer move into the yMoves array.
+  winChecker(yMoves) // see if the computer has won.
+  currentPlayer = 'Hilary'; // set player to hilary, the human player
+  document.getElementById('current-player').innerHTML = "Hilary" // set current player html to hilary
 }
 }

@@ -1,7 +1,9 @@
 body {
   background-image: url(images/congress.jpg);
+
   font-family: 'Crafty Girls', cursive;
   color: white;
+
 }
 
 
@@ -9,12 +11,15 @@ $hover-color:    #3d4250;
 $player-1-color: #dc685a
 $player-2-color: #ecaf4f;
 
-
+#main-area {
+  display: inline-block;
+  width: 80%
+}
 
 
 .board {
-  padding-left: 2%;
-
+  width: 80%;
+  padding-left: 10%;
 
 }
 
@@ -22,18 +27,17 @@ $player-2-color: #ecaf4f;
   text-align: center;
 }
 
-#31 {
-}
+
 .square {
   display: inline-block;
   width: 31.333%;
-  height: 130px;
+  height: 100px;
   margin-right: 1.7%;
   margin-bottom: 2%;
   /*border: 1px solid black;*/
   overflow: hidden;
   vertical-align: top;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: background 1s;
   background-color: #FFFFFF;
 
@@ -61,7 +65,7 @@ height: auto;
   margin-right: 1.5%;
   margin-bottom: 2%;
 
-    height: 60px;
+  height: 60px;
 
   display: inline-block;
   border: 1px solid black;
@@ -79,6 +83,18 @@ height: auto;
   border: 1px solid black;
   border-radius: 5px;
   background-color: #BF0A30;
+
+}
+
+#winner {
+  background-color: grey;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+justify-content: center; /* align horizontal */
+align-items: center; /* align vertical */
+
+
 
 }
 
@@ -140,4 +156,11 @@ height: auto;
 
 body {
   font-family:sans-serif;
+}
+
+@media (max-width: 600px) {
+
+#currentplayer {
+  display: none;
+}
 }
