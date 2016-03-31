@@ -156,6 +156,10 @@ align-items: center; /* align vertical */
 
 }
 
+.v {
+  background-color: red;
+}
+
 .youtube {
   visibility: hidden;
 }
