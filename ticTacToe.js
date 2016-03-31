@@ -69,7 +69,7 @@ board.addEventListener("mouseout", function (event) {
 
 function turn(event) {
   if (event.target.className === 'square') {
-    if (playerCount === 1) {}// check if class has already been applied
+    if (playerCount === 1) {// check if class has already been applied
     if (currentPlayer === 'Hilary') {
       event.target.className = 'x'; // change square to x class
       xMoves.push(parseInt(event.target.id)); //push to moves array
@@ -77,7 +77,7 @@ function turn(event) {
       currentPlayer = 'Trump'; // set player to y
       document.getElementById('current-player').innerHTML = "Trump"
       computerMove(); }
-
+}
       else if (currentplayer === 2) {
 
         if (currentPlayer === 'Hilary') {
