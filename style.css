@@ -6,6 +6,30 @@ body {
 
 }
 
+.hilary-select {
+  height: 100px;
+  width: 12%;
+  border: 1px solid black;
+  float: left;
+  clear: left;
+  background-color: white;
+  margin-bottom: 80px;
+  color: black;
+
+}
+
+.chars {
+  height: 100px;
+  width: 12%;
+  border: 1px solid black;
+  float: left;
+  clear: left;
+  color: black;
+
+
+  background-color: white;
+}
+
 
 $hover-color:    #3d4250;
 $player-1-color: #dc685a

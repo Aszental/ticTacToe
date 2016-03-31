@@ -1,6 +1,7 @@
 var board = document.querySelector('.board')
 var square = document.querySelector('.square')
 var playerSpan = document.getElementById('current-player')
+var chars = document.querySelector('.chars')
 var currentPlayer = 'Hilary'
 var hilaryHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(images/hilary.jpg) repeat 0 0"
 var trumpHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(images/trump.jpg) repeat 0 0"
@@ -15,6 +16,18 @@ var isWinner = false;
 var isTie = false;
 var xWins = 0;
 var yWins = 0;
+var player1 = ""
+
+chars.addEventListener('click', function (event) {
+    if (event.target.id === 'trump') {
+      currentPlayer = 'Trump'
+    }
+    else if (event.target.id === 'hilary') {
+      currentPlayer = 'Hilary'
+    }
+})
+
+
 
 
 
@@ -190,8 +203,9 @@ function computerMove() {
 }
 
 
-$(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
 
+
+$(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});
 
 
 function trumpWins() {
