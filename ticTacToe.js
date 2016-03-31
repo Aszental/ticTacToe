@@ -1,7 +1,7 @@
 var board = document.querySelector('.board')
 var square = document.querySelector('.square')
 var playerSpan = document.getElementById('current-player')
-var reset = docment.getElementById('reset')
+var reset = document.getElementById('reset')
 var currentPlayer = 'Hilary'
 var hilaryHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(/ticTacToe/Images/hilary.jpg) repeat 0 0"
 var trumpHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(/ticTacToe/Images/trump.jpg) repeat 0 0"
