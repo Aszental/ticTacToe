@@ -1,5 +1,7 @@
 body {
-  background-image: url(http://mikeowenmaterials.com/wp-content/uploads/2015/03/sand-background.jpg);
+  background-image: url(images/congress.jpg);
+  font-family: 'Crafty Girls', cursive;
+  color: white;
 }
 
 
@@ -20,18 +22,20 @@ $player-2-color: #ecaf4f;
   text-align: center;
 }
 
+#31 {
+}
 .square {
   display: inline-block;
   width: 31.333%;
-  height: 100px;
+  height: 130px;
   margin-right: 1.7%;
   margin-bottom: 2%;
   /*border: 1px solid black;*/
-  background-color: #dc685a;
   overflow: hidden;
   vertical-align: top;
   border-radius: 5px;
   transition: background 1s;
+  background-color: #FFFFFF;
 
 }
 
@@ -57,12 +61,12 @@ height: auto;
   margin-right: 1.5%;
   margin-bottom: 2%;
 
-  height: 50px;
+    height: 60px;
 
   display: inline-block;
   border: 1px solid black;
   border-radius: 5px;
-  background-color: #78bec5;
+  background-image: url(images/stars.jpg);
 
 }
 #score-count-x {
@@ -70,12 +74,11 @@ height: auto;
   margin-right: 1.5%;
   margin-bottom: 2%;
 
-  height: 50px;
-
+  height: 60px;
   display: inline-block;
   border: 1px solid black;
   border-radius: 5px;
-  background-color: #78bec5;
+  background-color: #BF0A30;
 
 }
 
@@ -84,12 +87,12 @@ height: auto;
   margin-right: 1.5%;
   margin-bottom: 2%;
 
-  height: 50px;
+    height: 60px;
   display: inline-block;
   border: 1px solid black;
  align-content: center;
  border-radius: 5px;
- background-color: #78bec5;
+ background-color: #002868;
 
 
 }
@@ -113,7 +116,7 @@ height: auto;
   border-radius: 5px;
 
   overflow: hidden;
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/660px-Flag_of_Israel.svg.png);
+  background-image: url(images/hilary.jpg);
   background-size: contain;
 }
 
@@ -130,8 +133,11 @@ height: auto;
   border-radius: 5px;
 
   overflow: hidden;
-  background-image: url(http://www.crwflags.com/fotw/images/p/ps_pent.gif);
+  background-image: url(images/trump.jpg);
   background-size: contain;
 }
 
-.square:hover
+
+body {
+  font-family:sans-serif;
+}

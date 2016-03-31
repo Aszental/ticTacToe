@@ -1,12 +1,16 @@
 var board = document.querySelector('.board')
 var square = document.querySelector('.square')
 var playerSpan = document.getElementById('current-player')
-var currentPlayer = 'Israel'
-var israelHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/660px-Flag_of_Israel.svg.png) repeat 0 0"
-var palestineHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(http://www.crwflags.com/fotw/images/p/ps_pent.gif) repeat 0 0"
-var winConditions = [[11, 12, 13], [21, 22, 23], [31, 32, 33], [11, 21,31], [12, 22, 32],[13, 23, 33], [11, 22, 33], [13, 22, 31]]
+var currentPlayer = 'Hilary'
+var hilaryHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(images/hilary.jpg) repeat 0 0"
+var trumpHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(images/trump.jpg) repeat 0 0"
+var winConditions = [[11, 12, 13], [21, 22, 23], [31, 32, 33], [11, 21 ,31], [12, 22, 32],[13, 23, 33], [11, 22, 33], [13, 22, 31]]
+var allCells = [11,12,13,21,22,23,31,32,33]
 var xMoves = []
 var yMoves = []
+var allMoves = function() {
+  return xMoves.concat(yMoves);
+}
 var isWinner = false;
 var isTie = false;
 var xWins = 0;
@@ -27,14 +31,13 @@ board.addEventListener('click', turn);
 
 board.addEventListener("mouseover", function (event) {
   if (event.target.className === "square") {
-    if (currentPlayer === "Israel")
-    event.target.style.background = israelHoverBackground;
+    if (currentPlayer === "Hilary")
+    event.target.style.background = hilaryHoverBackground;
 
-    else if (currentPlayer === "Palestine") {
-      event.target.style.background = palestineHoverBackground;
-
+    else if (currentPlayer === "Trump") {
+      event.target.style.background = trumpHoverBackground;
   }
-    }
+ }
 }
 )
 
@@ -51,24 +54,24 @@ board.addEventListener("mouseout", function (event) {
 
 function turn(event) {
   if (event.target.className === 'square') { // check if class has already been applied
-    if (currentPlayer === 'Israel') {
+    if (currentPlayer === 'Hilary') {
       event.target.className = 'x'; // change square to x class
       xMoves.push(parseInt(event.target.id)); //push to moves array
       winChecker(xMoves) // see if x is winner
-      currentPlayer = 'Palestine'; // set player to y
-      document.getElementById('current-player').innerHTML = "Palestine"
-      document.getElementById('currentplayer').style.background = palestineHoverBackground
-
+      currentPlayer = 'Trump'; // set player to y
+      document.getElementById('current-player').innerHTML = "Trump"
+      document.getElementById('currentplayer').style.background = trumpHoverBackground
+      computerMove();
 
   }
 
-    else if (currentPlayer === 'Palestine') {
-      event.target.className = 'y';
+    else if (currentPlayer === 'Trump') {
+    /*  event.target.className = 'y';
       yMoves.push(parseInt(event.target.id));
       winChecker(yMoves)
-      currentPlayer = 'Israel';
-      document.getElementById('current-player').innerHTML = "Israel"
-      document.getElementById('currentplayer').style.background = israelHoverBackground
+      currentPlayer = 'Hilary';
+      document.getElementById('current-player').innerHTML = "Hilary"
+      document.getElementById('currentplayer').style.background = hilaryHoverBackground */
   }
 
  }
@@ -102,6 +105,7 @@ for (var j = 0; j < winConditions.length; j++) { //loop through win array
 	}
 
 }
+
   if(isWinner) {
     window.alert(currentPlayer + " Is the winner!")
     winCounter();
@@ -114,6 +118,7 @@ for (var j = 0; j < winConditions.length; j++) { //loop through win array
    }
 
 function boardReset() {
+  currentPlayer = "Hilary"
   xMoves = []
   yMoves = []
   isWinner = false;
@@ -133,13 +138,53 @@ function boardReset() {
 
 
 function winCounter() {
-  if (currentPlayer === 'Israel'){
+  if (currentPlayer === 'Hilary'){
     xWins++
     document.getElementById('xwins').innerHTML = xWins
   }
-  else if (currentPlayer === 'Palestine'){
+  else if (currentPlayer === 'Trump'){
     yWins++
-    document.getElementById('ywins').innerHTML = xWins
+    document.getElementById('ywins').innerHTML = yWins
 
   }
+}
+
+
+//function to get the remaining moves available to the computer
+function computerMoves(a1, a2) {
+    var a = [], diff = [];
+
+    for (var i = 0; i < a1.length; i++) {
+        a[a1[i]] = true;
+    }
+
+    for (var i = 0; i < a2.length; i++) {
+        if (a[a2[i]]) {
+            delete a[a2[i]];
+        } else {
+            a[a2[i]] = true;
+        }
+    }
+
+    for (var k in a) {
+        diff.push(k);
+    }
+
+    return diff;
+};
+
+
+
+
+function computerMove() {
+  if (currentPlayer === 'Trump') {
+  var availableMoves = computerMoves(allMoves(), allCells)
+  var nextMove = availableMoves[Math.floor(Math.random() * availableMoves.length)]; // get the next move randomly
+  console.log(nextMove)
+  document.getElementById(nextMove).className = 'y'
+  yMoves.push(parseInt(nextMove));
+  winChecker(yMoves)
+  currentPlayer = 'Hilary'; // set player to y
+  document.getElementById('current-player').innerHTML = "Hilary"
+}
 }
