@@ -161,6 +161,7 @@ body {
 .youtube {
   visibility: hidden;
 }
+
 @media (max-width: 600px) {
 
 #currentplayer {
