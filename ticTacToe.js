@@ -78,16 +78,13 @@ function turn(event) {
       document.getElementById('current-player').innerHTML = "Trump"
       computerMove(); }
 }
-      else if (currentplayer === 2) {
-
+      else if (playerCount === 2) {
         if (currentPlayer === 'Hilary') {
           event.target.className = 'x'; // change square to x class
           xMoves.push(parseInt(event.target.id)); //push to moves array
           winChecker(xMoves) // see if x is winner
           currentPlayer = 'Trump'; // set player to y
           document.getElementById('current-player').innerHTML = "Trump"
-
-
       }
 
       else if (currentPlayer === 'Trump') {
