@@ -2,6 +2,9 @@ var board = document.querySelector('.board')
 var square = document.querySelector('.square')
 var playerSpan = document.getElementById('current-player')
 var reset = document.getElementById('reset')
+var onePlayer = document.getElementById('one-player')
+var twoPlayer = document.getElementById('two-player')
+
 var currentPlayer = 'Hilary'
 var hilaryHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(/ticTacToe/Images/hilary.jpg) repeat 0 0"
 var trumpHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(/ticTacToe/Images/trump.jpg) repeat 0 0"
@@ -16,10 +19,19 @@ var isWinner = false;
 var isTie = false;
 var xWins = 0;
 var yWins = 0;
+var playerCount = 1;
 
 
 reset.addEventListener('click', function () {
   boardReset();
+})
+
+onePlayer.addEventListener('click', function () {
+  playerCount = 1
+})
+
+twoPlayer.addEventListener('click', function () {
+  playerCount = 2
 })
 
 
