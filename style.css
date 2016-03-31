@@ -1,5 +1,5 @@
 body {
-  background-image: url(images/congress.jpg);
+  background-image: url(/images/congress.jpg);
 
   font-family: 'Crafty Girls', cursive;
   color: white;
@@ -132,7 +132,7 @@ align-items: center; /* align vertical */
   border-radius: 5px;
 
   overflow: hidden;
-  background-image: url(images/hilary.jpg);
+  background-image: url(/images/hilary.jpg);
   background-size: contain;
 }
 
@@ -149,7 +149,7 @@ align-items: center; /* align vertical */
   border-radius: 5px;
 
   overflow: hidden;
-  background-image: url(images/trump.jpg);
+  background-image: url(/images/trump.jpg);
   background-size: contain;
 }
 
