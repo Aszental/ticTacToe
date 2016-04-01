@@ -74,6 +74,12 @@ board.addEventListener("mouseout", function (event) {
 
 function turn(event) {
   if (event.target.className === 'square') {
+    if (playerCount === null;) {
+      document.getElementById('winner').innerHTML = ("Please select a player count!" )
+
+
+      }
+      else {
     if (playerCount === 1) {// check if class has already been applied
     if (currentPlayer === 'Hilary') {
       event.target.className = 'x'; // change square to x class
@@ -106,7 +112,7 @@ function turn(event) {
 
  }
 }
-
+}
 
 function winChecker(moves) {
 for (var j = 0; j < winConditions.length; j++) { //loop through win array
