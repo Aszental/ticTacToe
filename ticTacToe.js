@@ -74,7 +74,7 @@ board.addEventListener("mouseout", function (event) {
 
 function turn(event) {
   if (event.target.className === 'square') {
-    if (playerCount === null;) {
+    if (playerCount === null)  { //force a player select
       document.getElementById('winner').innerHTML = ("Please select a player count!" )
 
 
