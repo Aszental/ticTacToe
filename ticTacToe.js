@@ -22,6 +22,11 @@ var yWins = 0;
 var playerCount = 1;
 
 
+window.onload = function () {
+  var audio = new Audio('/ticTacToe/music/anthem.mp3');
+  audio.play();
+}
+
 reset.addEventListener('click', function () {
   boardReset();
 })
@@ -138,9 +143,7 @@ for (var j = 0; j < winConditions.length; j++) { //loop through win array
       trumpWins()
       boardReset();
     }
-    else if (currenPLayer === "Hilary") {
-    var audio = new Audio('/ticTacToe/music/anthem.mp3');
-    audio.play();
+    else {
     boardReset();
     }
   }
