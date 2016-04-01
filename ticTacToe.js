@@ -19,7 +19,7 @@ var isWinner = false;
 var isTie = false;
 var xWins = 0;
 var yWins = 0;
-var playerCount = 0;
+var playerCount = null;
 
 
 window.onload = function () {
