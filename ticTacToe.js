@@ -138,7 +138,9 @@ for (var j = 0; j < winConditions.length; j++) { //loop through win array
       trumpWins()
       boardReset();
     }
-    else {
+    else if (currenPLayer === "Hilary") {
+    var audio = new Audio('/music/anthem.mp3');
+    audio.play();
     boardReset();
     }
   }
