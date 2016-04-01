@@ -4,7 +4,6 @@ var playerSpan = document.getElementById('current-player')
 var reset = document.getElementById('reset')
 var onePlayer = document.getElementById('one-player')
 var twoPlayer = document.getElementById('two-player')
-
 var currentPlayer = 'Hilary'
 var hilaryHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(/ticTacToe/Images/hilary.jpg) repeat 0 0"
 var trumpHoverBackground = "linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(/ticTacToe/Images/trump.jpg) repeat 0 0"
@@ -27,6 +26,8 @@ window.onload = function () {
   audio.play();
 }
 
+// event listeners for reset and player buttons.
+
 reset.addEventListener('click', function () {
   boardReset();
 })
@@ -40,16 +41,14 @@ twoPlayer.addEventListener('click', function () {
 })
 
 
-// var playerOne = function (event) {
-//   event.target.style.backgroundColor = 'green'
-// }
-//
-// var playerTwo = function (event) {
-//   event.target.style.backgroundColor = 'blue'
-// }
 
 board.addEventListener('click', turn);
+board.addEventListener("mouseout", function (event) {
+    event.target.style.background = ""
+  }
+)
 
+//event listener for hover backgrounds.
 board.addEventListener("mouseover", function (event) {
   if (event.target.className === "square") {
     if (currentPlayer === "Hilary")
@@ -61,17 +60,12 @@ board.addEventListener("mouseover", function (event) {
  }
 )
 
-board.addEventListener("mouseout", function (event) {
-    event.target.style.background = ""
-  }
-)
 
 
-// function image(thisImg) {
-//     document.getElementById('imageDiv').appendChild(img);
-// }
 
 
+
+//main turn event.
 function turn(event) {
   if (event.target.className === 'square') {
     if (playerCount === null)  { //force a player select
@@ -104,7 +98,6 @@ function turn(event) {
         winChecker(yMoves)
         currentPlayer = 'Hilary';
         document.getElementById('current-player').innerHTML = "Hilary"
-        document.getElementById('currentplayer').style.background = hilaryHoverBackground
     }
   }
 
@@ -229,6 +222,7 @@ function computerMove() {
 }
 
 
+//jquery for trump popup
 $(".youtube").delay( 3000 ).colorbox({iframe:true, innerWidth:640, innerHeight:390});
 function trumpWins() {
   $('.youtube').delay( 3000 ).click();
