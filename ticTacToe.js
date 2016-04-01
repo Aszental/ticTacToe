@@ -139,7 +139,7 @@ for (var j = 0; j < winConditions.length; j++) { //loop through win array
       boardReset();
     }
     else if (currenPLayer === "Hilary") {
-    var audio = new Audio('/music/anthem.mp3');
+    var audio = new Audio('/ticTacToe/music/anthem.mp3');
     audio.play();
     boardReset();
     }
